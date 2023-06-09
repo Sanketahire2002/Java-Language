@@ -1,0 +1,76 @@
+Steps to create Packages :
+
+1. D:->CoreJava->Packages->src->com->tcs->icici->loan->carloan->Demo.java
+
+2. D:->CoreJava->Packages->src->com->tcs->icici->loan->homeloan->Test.java
+
+3. Demo.java =>
+	
+		package com.tcs.icici.loan.carloan;
+
+		public class Demo 
+		{
+			protected static int a = 10;
+			public static void fun()
+			{
+				System.out.println("Demo class.");
+			}
+		}
+	
+4. Test.java =>
+	
+	Case I => If Test is not child of Demo
+	
+		package com.tcs.icici.loan.homeloan;
+		// import com.tcs.icici.loan.carloan.Demo;
+
+		class Test
+		{
+			public static void main(String []args)
+			{
+				com.tcs.icici.loan.carloan.Demo d = new com.tcs.icici.loan.carloan.Demo();	
+				// Fully qualified path OR import also allowed
+				System.out.println("a = "+d.a);
+				d.fun();
+			}
+		}
+	
+	Case II => If Test is child of Demo
+	
+		package com.tcs.icici.loan.homeloan;
+		import com.tcs.icici.loan.carloan.Demo;
+
+		class Test extends Demo
+		{
+			public static void main(String []args)
+			{
+				System.out.println("a = "+a);
+				Demo.fun();
+			}
+		}
+
+5. Open cmd
+
+6. First Compile Demo class =>
+
+	C:\Users\Sanket Ahire> javac  -d   D:\Core\Packages\bin   D:\Core\Packages\src\com\tcs\icici\loan\carloan\Demo.java
+	
+	We got Demo.class file in bin->com->tcs->icici->loan->carloan->Demo.class
+
+7. Now we have to use Demo class in Test class as per our program. To search Demo class Test class go to classpath.
+	So we will first set classpath.We have to set classpath only upto we created packages manually. Later packages created by compiler given while running the class file by using . (dot) operator.
+	
+	C:\Users\Sanket Ahire> set classpath=D:\Core\Packages\bin
+	
+8. Now compile Test class
+
+	C:\Users\Sanket Ahire> javac  -d  D:\Core\Packages\bin   D:\Core\Packages\src\com\tcs\icici\loan\homeloan\Test.java
+
+9. Now as our classpath is already set. So directly Run Test.class file. ( . dot ) operator used here.
+
+	C:\Users\Sanket Ahire> java com.tcs.icici.loan.homeloan.Test
+	
+10. We got OUTPUT :
+	
+	a = 10
+	Demo class.

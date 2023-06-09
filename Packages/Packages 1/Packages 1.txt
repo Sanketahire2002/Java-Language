@@ -1,0 +1,39 @@
+Steps to create Packages :
+
+1. D:->CoreJava->Packages->src->com->tcs->icici->loan->carloan->Demo.java
+
+2. Demo.java =>
+	
+		package com.tcs.icici.loan.carloan;
+
+		class Demo 
+		{
+			public static void main(String[] args)
+			{
+				System.out.println("Packages-1 : Demo class.");
+			}		
+		}
+	
+3. Open cmd
+
+4. Compile Demo class =>
+
+		D:\Core Java\Packages\Packages 1>javac -d  bin  src\com\tcs\icici\loan\carloan\Demo.java
+	
+	We got Demo.class file in bin->com->tcs->icici->loan->carloan->Demo.class
+
+5. So we will first set classpath.We have to set classpath only upto we created packages manually. Later packages created by 	compiler given while running the class file by using . (dot) operator.
+
+	If we are in folder containing src & bin
+		D:\Core Java\Packages\Packages 1>set classpath=bin
+		
+	If we are anywhere then
+		C:\Users\Sanket Ahire> set classpath=D:\Core\Packages\bin
+	
+6. Now as our classpath is already set. So directly Run Demo.class file. ( . dot ) operator used here.
+
+		D:\Core Java\Packages\Packages 1>java com.tcs.icici.loan.carloan.Demo
+	
+7. We got OUTPUT :
+	
+	Packages-1 : Demo class.
